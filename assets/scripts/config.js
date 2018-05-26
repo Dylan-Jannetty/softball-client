@@ -2,7 +2,7 @@
 
 let apiUrl
 const apiUrls = {
-  production: '<replace-with-heroku-url>',
+  production: 'https://dashboard.heroku.com/apps/calm-garden-62361',
   development: 'http://localhost:4741'
 }
 
