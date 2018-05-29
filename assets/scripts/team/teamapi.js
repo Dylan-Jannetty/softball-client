@@ -16,6 +16,18 @@ const createTeam = function (formData) {
   })
 }
 
+const getTeam = function (data) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + `/teams`,
+    headers: {
+      contentType: 'application/json'
+    },
+    data: data
+  })
+}
+
 module.exports = {
-  createTeam
+  createTeam,
+  getTeam
 }
