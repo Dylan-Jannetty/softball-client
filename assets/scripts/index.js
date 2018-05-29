@@ -8,8 +8,18 @@
 const navHandlebars = require('./templates/nav.handlebars')
 const navHTML = navHandlebars()
 
+// const homePageHandlebars = require('./templates/home-page.handlebars')
+// const homePageHTML = homePageHandlebars()
+
+const getAllTeamsHandlebars = require('./templates/getallteams.handlebars')
+const getAllTeamsHTML = getAllTeamsHandlebars()
+
 const authEvents = require('./auth/events')
+const teamEvents = require('./team/teamevents')
 $(() => {
   authEvents.addHandlers()
+  teamEvents.addHandlers()
   $('body').prepend(navHTML)
+  // $('body').append(homePageHTML)
+  $('.container').append(getAllTeamsHTML)
 })

@@ -22,6 +22,7 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function (data) {
+  console.log(data)
   $('#message').html(`<div class="alert alert-success" role="alert">You have succesfully signed in!</div>`)
   $('#message').css('text-align', 'center')
   $('form').trigger('reset')

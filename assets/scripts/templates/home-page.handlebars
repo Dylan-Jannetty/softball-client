@@ -1,0 +1,20 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Top Ranked Teams</div>
+  <!-- Table -->
+  <table class="all-teams table">
+    <tr>
+      <th>Name</th>
+      <th>Wins</th>
+      <th>Losses</th>
+    </tr>
+    {{#each teams as |team|}}
+    <tr class="team-ranks">
+      <td class="team-name">{{team.name}}</td>
+      <td class="team-wins">{{team.win}}</td>
+      <td class="team-losses">{{team.loss}}</td>
+    </tr>
+    {{/each}}
+
+  </table>
+</div>
