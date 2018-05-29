@@ -21,5 +21,5 @@ $(() => {
   teamEvents.addHandlers()
   $('body').prepend(navHTML)
   // $('body').append(homePageHTML)
-  $('body').append(getAllTeamsHTML)
+  $('.container').append(getAllTeamsHTML)
 })
