@@ -9,7 +9,9 @@ const navHandlebars = require('./templates/nav.handlebars')
 const navHTML = navHandlebars()
 
 const authEvents = require('./auth/events')
+const teamEvents = require('./team/teamevents')
 $(() => {
   authEvents.addHandlers()
+  teamEvents.addHandlers()
   $('body').prepend(navHTML)
 })
