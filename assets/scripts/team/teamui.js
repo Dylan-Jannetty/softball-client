@@ -2,6 +2,26 @@ const homePageHandlebars = require('../templates/home-page.handlebars')
 // const getAllTeamsHandlebars = require('../templates/getallteams.handlebars')
 const store = require('../store')
 
+const onGetTeamNoMessageSuccess = function (data) {
+  data.teams.sort(function (a, b) {
+    return a.win - a.win
+  })
+  data.teams.sort(function (a, b) {
+    return a.loss - b.loss
+  })
+
+  let i = 1
+  data.teams.forEach(function () {
+    data.teams[i - 1].rank = i
+    i++
+  })
+  const homePageHTML = homePageHandlebars({ teams: data.teams })
+  $('.container').empty(homePageHTML)
+  // $('.container').prepend(getAllTeamsHandlebars)
+  $('.container').append(homePageHTML)
+  $('form').trigger('reset')
+}
+
 const createTeamSuccess = function (data) {
   store.user.team = data.team
   console.log('in createTeamSuccess:', store.user)
@@ -33,6 +53,20 @@ const createTeamFailure = function () {
 }
 
 const onGetTeamSuccess = function (data) {
+  console.log(data)
+  data.teams.sort(function (a, b) {
+    return a.win - a.win
+  })
+  data.teams.sort(function (a, b) {
+    return a.loss - b.loss
+  })
+
+  let i = 1
+  data.teams.forEach(function () {
+    data.teams[i - 1].rank = i
+    i++
+  })
+  console.log(data)
   const homePageHTML = homePageHandlebars({ teams: data.teams })
   $('.container').empty(homePageHTML)
   // $('.container').prepend(getAllTeamsHandlebars)
@@ -42,16 +76,7 @@ const onGetTeamSuccess = function (data) {
   $('form').trigger('reset')
   setTimeout(() => {
     $('#message').html(``)
-  }, 3000
-  )
-}
-
-const onGetTeamNoMessageSuccess = function (data) {
-  const homePageHTML = homePageHandlebars({ teams: data.teams })
-  $('.container').empty(homePageHTML)
-  // $('.container').prepend(getAllTeamsHandlebars)
-  $('.container').append(homePageHTML)
-  $('form').trigger('reset')
+  }, 3000)
 }
 
 const onGetTeamFailure = function (data) {
@@ -67,16 +92,12 @@ const onGetTeamFailure = function (data) {
 const onDeleteTeamSuccess = function (data) {
   $('.nav-message').html(`<div class="alert alert-success" role="alert">Your team has been deleted</div>`)
   $('.nav-message').css('text-align', 'center')
-  $('form').trigger('reset')
   setTimeout(() => {
     $('.nav-message').html(``)
-  }, 3000
-  )
+  }, 3000)
   $('.container').empty()
-  $('.update-team-name').empty()
-  $('.update-team-win').empty()
-  $('.update-team-loss').empty()
   $('.nav-team').empty()
+  $('.update-team').trigger('reset')
 }
 
 const onDeleteTeamFailure = function (data) {

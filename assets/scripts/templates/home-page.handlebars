@@ -4,12 +4,14 @@
   <!-- Table -->
   <table class="all-teams table">
     <tr>
+      <th>Rank</th>
       <th>Name</th>
       <th>Wins</th>
       <th>Losses</th>
     </tr>
     {{#each teams as |team|}}
     <tr class="team-ranks">
+      <td class="rank">{{team.rank}}</td>
       <td class="team-name">{{team.name}}</td>
       <td class="team-wins">{{team.win}}</td>
       <td class="team-losses">{{team.loss}}</td>
