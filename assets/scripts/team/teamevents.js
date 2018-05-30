@@ -42,28 +42,20 @@ const onDeleteTeam = (event) => {
     .then(() => { onGetTeamNoEvent() })
 }
 
-// const deleter = (e) => {
-//   e.preventDefault()
-//   // console.log('delete ')
-//   const id = $(e.target).children().attr('data-id')
-//   const data = {getallteams: { id: $(e.target).children().attr('data-id') }}
-//   // console.log('item to delete has id of', data)
-//   api.deleteTeam(data)
-//     .then(ui.onDeleteTeamSuccess)
-//     .then(() => {
-//       $('#' + id).fadeOut()
-//       $('#' + id + '-all').fadeOut()
-//     })
-//     .then(() => {
-//       $('#' + id).remove()
-//       $('#' + id + '-all').remove()
-//     })
-// }
+const onUpdateTeam = (event) => {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.updateTeam(data)
+    .then(ui.onUpdateTeamSuccess)
+    .catch(ui.onUpdateTeamFailure)
+    .then(() => { onGetTeamNoEvent() })
+}
 
 const addHandlers = () => {
   $('body').on('submit', '.create-team', onCreateTeam)
   $('body').on('click', '.get-teams', onGetTeam)
   $('body').on('submit', '.delete-team', onDeleteTeam)
+  $('body').on('submit', '.update-team', onUpdateTeam)
   // $('body').on('submit', '.team-ranks .delete-your-team', deleter)
 }
 

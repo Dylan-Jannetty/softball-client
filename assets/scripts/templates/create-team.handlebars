@@ -1,10 +1,10 @@
-<h1 data-id="" class="create-team">Create a Team</h1>
+<h4 data-id="" class="create-team">Create a Team</h4>
 
   <form class="create-team">
     <fieldset>
       <input type="text" name="team[name]" placeholder="Team name" required>
-      <input type="integer" name="team[win]" autocomplete="Wins" placeholder="wins">
-      <input type="integer" name="team[loss]" autocomplete="Losses" placeholder="losses">
+      <input type="number" name="team[win]" autocomplete="Wins" placeholder="wins" required>
+      <input type="number" name="team[loss]" autocomplete="Losses" placeholder="losses" required>
 
       <input class="button" type="submit" value="Create Team">
     </fieldset>

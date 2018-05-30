@@ -1,0 +1,11 @@
+<h4 data-id="" class="update-team">Update Team</h4>
+
+  <form class="update-team">
+    <fieldset>
+      <!-- <input type="text" name="team[id]" autocomplete="id" placeholder="Team ID" required value="{{teamId}}" style="display:none"> -->
+      <input type="text" value="{{teams.name}}" name="team[name]" autocomplete="Team Name" placeholder="New Team Name">
+      <input type="number" name="team[win]" autocomplete="wins" placeholder="New Wins">
+      <input type="number" name="team[loss]" autocomplete="losses" placeholder="New Losses">
+      <input class="button" type="submit" value="Update Team">
+    </fieldset>
+  </form>

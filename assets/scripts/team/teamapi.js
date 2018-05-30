@@ -38,8 +38,20 @@ const deleteTeam = function (data) {
   })
 }
 
+const updateTeam = (data) => {
+  return $.ajax({
+    url: config.apiUrl + `/teams/` + store.user.team.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
 module.exports = {
   createTeam,
   getTeam,
-  deleteTeam
+  deleteTeam,
+  updateTeam
 }
