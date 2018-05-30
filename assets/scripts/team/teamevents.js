@@ -27,6 +27,14 @@ const onGetTeam = function (event) {
 const onGetTeamNoEvent = () => {
   // const data = getFormFields(event.target)
   api.getTeam()
+    .then(ui.onGetTeamNoMessageSuccess)
+
+    // .catch(ui.)
+}
+
+const onLoadPageNoEvent = () => {
+  // const data = getFormFields(event.target)
+  api.getTeam()
     .then(ui.onGetTeamSuccess)
 
     // .catch(ui.)
@@ -61,5 +69,6 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
-  onGetTeamNoEvent
+  onGetTeamNoEvent,
+  onLoadPageNoEvent
 }

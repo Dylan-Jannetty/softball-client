@@ -4,21 +4,26 @@ const store = require('../store')
 
 const createTeamSuccess = function (data) {
   store.user.team = data.team
-  // console.log(data)``
+  console.log('in createTeamSuccess:', store.user)
   $('.nav-message').html(`<div class="alert alert-success" role="alert">You've succesfully created your team</div>`)
-  $('.container').empty(homePageHandlebars)
+  $('.container').empty()
   // const homePageHTML = homePageHandlebars({teams: teams})
   $('.nav-message').css('text-align', 'center')
-  $('form').trigger('reset')
+  $('.create-team').trigger('reset')
   setTimeout(() => {
     $('.nav-message').html(``)
-  }, 3000
-  )
-  $('.nav-team').append(data.team.name)
+  }, 3000)
+  $('.update-team-name').attr('value', store.user.team.name)
+  $('.update-team-win').attr('value', store.user.team.win)
+  $('.update-team-loss').attr('value', store.user.team.loss)
+
+  if (store.user.team) {
+    $('.nav-team').html(`<div>Team: ${store.user.team.name}</div>`)
+  }
 }
 
 const createTeamFailure = function () {
-  $('.nav-message').html(`<div class="alert alert-danger" role="alert">You've failed to create a team</div>`)
+  $('.nav-message').html(`<div class="alert alert-danger" role="alert">You already have a team!</div>`)
   $('.nav-message').css('text-align', 'center')
   $('form').trigger('reset')
   setTimeout(() => {
@@ -28,7 +33,6 @@ const createTeamFailure = function () {
 }
 
 const onGetTeamSuccess = function (data) {
-  console.log(data)
   const homePageHTML = homePageHandlebars({ teams: data.teams })
   $('.container').empty(homePageHTML)
   // $('.container').prepend(getAllTeamsHandlebars)
@@ -40,6 +44,14 @@ const onGetTeamSuccess = function (data) {
     $('#message').html(``)
   }, 3000
   )
+}
+
+const onGetTeamNoMessageSuccess = function (data) {
+  const homePageHTML = homePageHandlebars({ teams: data.teams })
+  $('.container').empty(homePageHTML)
+  // $('.container').prepend(getAllTeamsHandlebars)
+  $('.container').append(homePageHTML)
+  $('form').trigger('reset')
 }
 
 const onGetTeamFailure = function (data) {
@@ -60,11 +72,15 @@ const onDeleteTeamSuccess = function (data) {
     $('.nav-message').html(``)
   }, 3000
   )
-  $('.container').empty(homePageHandlebars)
+  $('.container').empty()
+  $('.update-team-name').empty()
+  $('.update-team-win').empty()
+  $('.update-team-loss').empty()
+  $('.nav-team').empty()
 }
 
 const onDeleteTeamFailure = function (data) {
-  $('.nav-message').html(`<div class="alert alert-danger" role="alert">failed delete teams</div>`)
+  $('.nav-message').html(`<div class="alert alert-danger" role="alert">failed delete team</div>`)
   $('.nav-message').css('text-align', 'center')
   $('form').trigger('reset')
   setTimeout(() => {
@@ -83,6 +99,11 @@ const onUpdateTeamSuccess = function (data) {
   }, 3000
   )
   $('.container').empty(homePageHandlebars)
+  $('.update-team-name').attr('value', store.user.team.name)
+  $('.update-team-win').attr('value', store.user.team.win)
+  $('.update-team-loss').attr('value', store.user.team.loss)
+  $('.nav-team').empty()
+  $('.nav-team').html(`<div>Team: ${store.user.team.name}</div>`)
 }
 
 const onUpdateTeamFailure = function (data) {
@@ -103,5 +124,6 @@ module.exports = {
   onDeleteTeamSuccess,
   onDeleteTeamFailure,
   onUpdateTeamSuccess,
-  onUpdateTeamFailure
+  onUpdateTeamFailure,
+  onGetTeamNoMessageSuccess
 }

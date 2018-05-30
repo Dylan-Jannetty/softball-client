@@ -13,7 +13,6 @@ const navHTML = navHandlebars()
 
 // const getAllTeamsHandlebars = require('./templates/getallteams.handlebars')
 // const getAllTeamsHTML = getAllTeamsHandlebars()
-
 const authEvents = require('./auth/events')
 const teamEvents = require('./team/teamevents')
 $(() => {
@@ -22,7 +21,7 @@ $(() => {
   $('body').prepend(navHTML)
   // $('body').append(homePageHTML)
   // $('.container').append(getAllTeamsHTML)
-  teamEvents.onGetTeamNoEvent()
+  teamEvents.onLoadPageNoEvent()
   // $('.change-password').remove()
   // $('.delete-team').remove()
   // $('.create-team').remove()
