@@ -27,6 +27,17 @@ const getTeam = function (data) {
   })
 }
 
+const getTeamById = function (data) {
+  console.log('data in api', data)
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + `/teams/` + data,
+    headers: {
+      contentType: 'application/json'
+    }
+  })
+}
+
 const deleteTeam = function (data) {
   return $.ajax({
     url: config.apiUrl + `/teams/` + store.user.team.id,
@@ -53,5 +64,6 @@ module.exports = {
   createTeam,
   getTeam,
   deleteTeam,
-  updateTeam
+  updateTeam,
+  getTeamById
 }

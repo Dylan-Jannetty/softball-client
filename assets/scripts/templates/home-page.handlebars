@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading">Top Ranked Teams</div>
+  <div class="panel-heading">Leaderboards</div>
   <!-- Table -->
   <table class="all-teams table">
     <tr>
@@ -12,7 +12,7 @@
     {{#each teams as |team|}}
     <tr class="team-ranks">
       <td class="rank">{{team.rank}}</td>
-      <td class="team-name">{{team.name}}</td>
+      <td class="team-name"><a href="#" data-team-id="{{team.id}}">{{team.name}}</a></td>
       <td class="team-wins">{{team.win}}</td>
       <td class="team-losses">{{team.loss}}</td>
     </tr>

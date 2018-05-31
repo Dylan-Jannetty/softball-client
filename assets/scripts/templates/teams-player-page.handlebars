@@ -1,0 +1,24 @@
+{{>create-player}}
+{{>getallplayers}}
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Players</div>
+  <!-- Table -->
+  <table class="all-teams table">
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Hits</th>
+      <th>Bats</th>
+    </tr>
+    {{#each players as |player|}}
+    <tr class="players">
+      <td class="player-name">{{player.name}}</td>
+      <td class="player-position">{{player.position}}</td>
+      <td class="player-hits">{{player.hits}}</td>
+      <td class="player-bats">{{player.bats}}</td>
+    </tr>
+    {{/each}}
+
+  </table>
+</div>

@@ -4,11 +4,11 @@ const store = require('../store')
 
 const onGetTeamNoMessageSuccess = function (data) {
   data.teams.sort(function (a, b) {
-    return a.win - a.win
+    return b.win - a.win
   })
-  data.teams.sort(function (a, b) {
-    return a.loss - b.loss
-  })
+  // data.teams.sort(function (a, b) {
+  //   return a.loss - b.loss
+  // })
 
   let i = 1
   data.teams.forEach(function () {
@@ -55,11 +55,11 @@ const createTeamFailure = function () {
 const onGetTeamSuccess = function (data) {
   console.log(data)
   data.teams.sort(function (a, b) {
-    return a.win - a.win
+    return b.win - a.win
   })
-  data.teams.sort(function (a, b) {
-    return a.loss - b.loss
-  })
+  // data.teams.sort(function (a, b) {
+  //   return a.loss - b.loss
+  // })
 
   let i = 1
   data.teams.forEach(function () {
@@ -85,8 +85,28 @@ const onGetTeamFailure = function (data) {
   $('form').trigger('reset')
   setTimeout(() => {
     $('#message').html(``)
-  }, 3000
-  )
+  }, 3000)
+}
+
+const onGetTeamByIdSuccess = function (data) {
+  // store.user.team = data.team.id
+  $('#message').html(`<div class="alert alert-success" role="alert">Got team by id</div>`)
+  $('#message').css('text-align', 'center')
+  $('.container').empty()
+  const teamsPlayerPageHandlebars = require('../templates/teams-player-page.handlebars')
+  const teamsPlayerPageHTML = teamsPlayerPageHandlebars({ teams: data.team })
+  $('.container').append(teamsPlayerPageHTML)
+  setTimeout(() => {
+    $('#message').html(``)
+  }, 3000)
+}
+
+const onGetTeamByIdFailure = function (data) {
+  $('#message').html(`<div class="alert alert-danger" role="alert">failed to get teams</div>`)
+  $('#message').css('text-align', 'center')
+  setTimeout(() => {
+    $('#message').html(``)
+  }, 3000)
 }
 
 const onDeleteTeamSuccess = function (data) {
@@ -146,5 +166,7 @@ module.exports = {
   onDeleteTeamFailure,
   onUpdateTeamSuccess,
   onUpdateTeamFailure,
-  onGetTeamNoMessageSuccess
+  onGetTeamNoMessageSuccess,
+  onGetTeamByIdSuccess,
+  onGetTeamByIdFailure
 }
