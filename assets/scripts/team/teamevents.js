@@ -2,6 +2,8 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const ui = require('./teamui')
 const api = require('./teamapi')
+const playerEvents = require('../player/playerevents')
+const store = require('../store')
 
 const onCreateTeam = function (event) {
   event.preventDefault()
@@ -22,6 +24,16 @@ const onGetTeam = function (event) {
   api.getTeam(data)
     .then(ui.onGetTeamSuccess)
     .catch(ui.onGetTeamFailure)
+}
+
+const onGetTeamById = function (event) {
+  event.preventDefault()
+  const data = $(event.target).attr('data-team-id')
+  store.currentTeamId = data
+  api.getTeamById(data)
+    .then(ui.onGetTeamByIdSuccess)
+    .catch(ui.onGetTeamByIdFailure)
+    .then(() => { playerEvents.onGetPlayerNoEvent() })
 }
 
 const onGetTeamNoEvent = () => {
@@ -64,6 +76,7 @@ const addHandlers = () => {
   $('body').on('click', '.get-teams', onGetTeam)
   $('body').on('submit', '.delete-team', onDeleteTeam)
   $('body').on('submit', '.update-team', onUpdateTeam)
+  $('body').on('click', '.team-name', onGetTeamById)
   // $('body').on('submit', '.team-ranks .delete-your-team', deleter)
 }
 
