@@ -1,5 +1,4 @@
-{{>create-player}}
-{{>getallplayers}}
+<p class="player-message"></p>
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading">Players</div>
@@ -12,13 +11,15 @@
       <th>Bats</th>
     </tr>
     {{#each players as |player|}}
-    <tr class="players">
+    <tr data-id="{{player_.id}}">
       <td class="player-name">{{player.name}}</td>
       <td class="player-position">{{player.position}}</td>
       <td class="player-hits">{{player.hits}}</td>
       <td class="player-bats">{{player.bats}}</td>
+      <td>{{>delete-player data=player.id}}</td>
+      <td>{{>update-player data=player.id}}</td>
     </tr>
     {{/each}}
-
   </table>
 </div>
+  <div class="create-player-div">{{>create-player}}</div>

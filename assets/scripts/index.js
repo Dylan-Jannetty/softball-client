@@ -8,6 +8,9 @@
 const navHandlebars = require('./templates/nav.handlebars')
 const navHTML = navHandlebars()
 
+// const footerHandlebars = require('./templates/footer.handlebars')
+// const footerHTML = footerHandlebars()
+
 // const homePageHandlebars = require('./templates/home-page.handlebars')
 // const homePageHTML = homePageHandlebars()
 
@@ -22,4 +25,10 @@ $(() => {
   playerEvents.addHandlers()
   $('body').prepend(navHTML)
   teamEvents.onLoadPageNoEvent()
+  $('.sign-out-button').empty()
+  $('.delete-team-list').empty()
+  $('.update-team-list').empty()
+  $('.create-team-list').empty()
+  $('.change-password-list').empty()
+  // $('body').append(footerHTML)
 })

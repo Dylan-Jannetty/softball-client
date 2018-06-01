@@ -7,7 +7,6 @@ const onGetPlayerNoMessageSuccess = function (data) {
   const teamPlayers = data.players.filter((p) => {
     return p.team_id === +store.currentTeamId
   })
-  console.log('teamPlayers:', teamPlayers)
   const teamsPlayerPageHTML = teamsPlayerPageHandlebars({ players: teamPlayers })
   $('.container').empty()
 
@@ -21,10 +20,10 @@ const onGetPlayerNoMessageSuccess = function (data) {
 
 const createPlayerSuccess = function (data) {
   store.user.player = data.player
-  $('#message').html(`<div class="alert alert-success" role="alert">You've succesfully created your player</div>`)
+  $('.player-message').html(`<div class="alert alert-success" role="alert">You've succesfully created your player</div>`)
   // $('.container').empty()
   // const homePageHTML = homePageHandlebars({teams: teams})
-  $('#message').css('text-align', 'center')
+  $('.player-message').css('text-align', 'center')
   $('.create-player').trigger('reset')
   setTimeout(() => {
     $('.nav-message').html(``)
@@ -32,8 +31,8 @@ const createPlayerSuccess = function (data) {
 }
 
 const createPlayerFailure = function () {
-  $('#message').html(`<div class="alert alert-danger" role="alert">Couldn't create player!</div>`)
-  $('#message').css('text-align', 'center')
+  $('.player-message').html(`<div class="alert alert-danger" role="alert">You have to be signed in to a team create a player!</div>`)
+  $('.player-message').css('text-align', 'center')
   $('form').trigger('reset')
   setTimeout(() => {
     $('.nav-message').html(``)
@@ -48,8 +47,8 @@ const onGetPlayerSuccess = function (data) {
   const teamPlayers = data.players.filter((p) => {
     return p.team_id === +store.currentTeamId
   })
-  console.log('teamPlayers:', teamPlayers)
   const teamsPlayerPageHTML = teamsPlayerPageHandlebars({ players: teamPlayers })
+
   $('.container').empty()
 
   $('.container').append(teamsPlayerPageHTML)
@@ -71,19 +70,17 @@ const onGetPlayerFailure = function (data) {
 }
 
 const onDeletePlayerSuccess = function (data) {
-  $('.nav-message').html(`<div class="alert alert-success" role="alert">Your team has been deleted</div>`)
-  $('.nav-message').css('text-align', 'center')
+  $('.player-message').html(`<div class="alert alert-success" role="alert">Your team has been deleted</div>`)
+  $('.player-message').css('text-align', 'center')
   setTimeout(() => {
     $('.nav-message').html(``)
   }, 3000)
-  $('.container').empty()
-  $('.nav-team').empty()
-  $('.update-team').trigger('reset')
+  $('.update-player').trigger('reset')
 }
 
 const onDeletePlayerFailure = function (data) {
-  $('.nav-message').html(`<div class="alert alert-danger" role="alert">failed delete team</div>`)
-  $('.nav-message').css('text-align', 'center')
+  $('.player-message').html(`<div class="alert alert-danger" role="alert">failed delete team</div>`)
+  $('.player-message').css('text-align', 'center')
   $('form').trigger('reset')
   setTimeout(() => {
     $('.nav-message').html(``)
@@ -93,8 +90,8 @@ const onDeletePlayerFailure = function (data) {
 
 const onUpdatePlayerSuccess = function (data) {
   store.user.player = data.player
-  $('.nav-message').html(`<div class="alert alert-success" role="alert">Your Team has been updated</div>`)
-  $('.nav-message').css('text-align', 'center')
+  $('.player-message').html(`<div class="alert alert-success" role="alert">Your Team has been updated</div>`)
+  $('.player-message').css('text-align', 'center')
   $('form').trigger('reset')
   setTimeout(() => {
     $('.nav-message').html(``)
@@ -105,8 +102,8 @@ const onUpdatePlayerSuccess = function (data) {
 }
 
 const onUpdatePlayerFailure = function (data) {
-  $('.nav-message').html(`<div class="alert alert-danger" role="alert">There was a problem updating your team</div>`)
-  $('.nav-message').css('text-align', 'center')
+  $('.player-message').html(`<div class="alert alert-danger" role="alert">There was a problem updating your team</div>`)
+  $('.player-message').css('text-align', 'center')
   $('form').trigger('reset')
   setTimeout(() => {
     $('.nav-message').html(``)
