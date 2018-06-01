@@ -73,10 +73,11 @@ const onUpdateTeam = (event) => {
 
 const addHandlers = () => {
   $('body').on('submit', '.create-team', onCreateTeam)
-  $('body').on('click', '.get-teams', onGetTeam)
+  // $('body').on('click', '.get-teams', onGetTeam)
   $('body').on('submit', '.delete-team', onDeleteTeam)
   $('body').on('submit', '.update-team', onUpdateTeam)
   $('body').on('click', '.team-name', onGetTeamById)
+  $('body').on('click', '.home', onGetTeam)
   // $('body').on('submit', '.team-ranks .delete-your-team', deleter)
 }
 

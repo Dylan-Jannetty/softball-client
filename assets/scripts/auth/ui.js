@@ -8,11 +8,6 @@ const signUpSuccess = function (data) {
   setTimeout(() => {
     $('.nav-message').html('')
   }, 3000)
-  // $('.dropdown-menu').append('.change-password')
-  // $('.dropdown-menu').append('.delete-team')
-  // $('.dropdown-menu').append('.create-team')
-  // $('.dropdown-menu').append('.update-team')
-  // $('.dropdown-menu').append('.sign-out')
 }
 
 const signUpFailure = function () {
@@ -30,36 +25,28 @@ const signInSuccess = function (data) {
   $('.nav-message').css('text-align', 'center')
   $('form').trigger('reset')
 
-  //
+  $('.sign-in').empty()
+  $('.sign-up').empty()
 
-  // const navHandlebars = require('./templates/nav.handlebars')
-  // const navHTML = navHandlebars()
-  // $('.nav').remove()
-  // const signedInNavHandlebars = require('./templates/signed-in-nav.handlebars')
-  // const signedInNavHTML = signedInNavHandlebars()
-  // $('body').prepend(signedInNavHTML)
-  // $('.sign-in').remove()
-  // $('.sign-up').remove()
+  const changePasswordHandlebars = require('../templates/change-password.handlebars')
+  const changePasswordHTML = changePasswordHandlebars()
+  $('.change-password-list').append(changePasswordHTML)
 
-  // const changePasswordHandlebars = require('../templates/change-password.handlebars')
-  // const changePasswordHTML = changePasswordHandlebars()
-  // $('.change-password').append(changePasswordHTML)
-  //
-  // const deleteTeamHandlebars = require('../templates/delete-team.handlebars')
-  // const deleteTeamHTML = deleteTeamHandlebars()
-  // $('.delete-team').append(deleteTeamHTML)
-  //
-  // const createTeamHandlebars = require('../templates/create-team.handlebars')
-  // const createTeamHTML = createTeamHandlebars()
-  // $('.create-team').append(createTeamHTML)
-  //
-  // const updateTeamHandlebars = require('../templates/update-team.handlebars')
-  // const updateTeamHTML = updateTeamHandlebars()
-  // $('.update-team').append(updateTeamHTML)
-  //
-  // const signOutUserHandlebars = require('../templates/sign-out.handlebars')
-  // const signOutUserHTML = signOutUserHandlebars()
-  // $('.sign-out').append(signOutUserHTML)
+  const deleteTeamHandlebars = require('../templates/delete-team.handlebars')
+  const deleteTeamHTML = deleteTeamHandlebars()
+  $('.delete-team-list').append(deleteTeamHTML)
+
+  const createTeamHandlebars = require('../templates/create-team.handlebars')
+  const createTeamHTML = createTeamHandlebars()
+  $('.create-team-list').append(createTeamHTML)
+
+  const updateTeamHandlebars = require('../templates/update-team.handlebars')
+  const updateTeamHTML = updateTeamHandlebars()
+  $('.update-team-list').append(updateTeamHTML)
+
+  const signOutUserHandlebars = require('../templates/sign-out.handlebars')
+  const signOutUserHTML = signOutUserHandlebars()
+  $('.sign-out-button').append(signOutUserHTML)
 
   setTimeout(() => {
     $('.nav-message').html('')
@@ -122,6 +109,20 @@ const signOutSuccess = function () {
     $('#message').html('')
   }, 3000)
   $('.nav-team').empty()
+  $('.sign-out-button').empty()
+  $('.delete-team-list').empty()
+  $('.update-team-list').empty()
+  $('.create-team-list').empty()
+  $('.change-password-list').empty()
+
+  const signInHandlebars = require('../templates/sign-in.handlebars')
+  const signInHTML = signInHandlebars()
+  $('.sign-in-list').append(signInHTML)
+
+  const signUpHandlebars = require('../templates/sign-up.handlebars')
+  const signUpHTML = signUpHandlebars()
+  $('.sign-up-list').append(signUpHTML)
+
   store.user = null
 }
 const signOutFailure = function () {

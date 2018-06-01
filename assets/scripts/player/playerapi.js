@@ -15,7 +15,6 @@ const createPlayer = function (formData) {
 }
 
 const getPlayer = function (data) {
-  console.log('AHHHHH')
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + `/players`,
@@ -27,13 +26,13 @@ const getPlayer = function (data) {
 }
 
 const deletePlayer = function (data) {
+  console.log('This is deleteplayer:', data)
   return $.ajax({
-    url: config.apiUrl + `/players/` + store.user.player.id,
+    url: config.apiUrl + `/players/` + data,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data: data
+    }
   })
 }
 

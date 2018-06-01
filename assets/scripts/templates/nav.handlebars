@@ -7,26 +7,29 @@
       </a>
     </div>
     <!-- sign out button -->
-
+  <div class="sign-out-button">
     <button type="button" class="sign-out btn btn-default navbar-btn navbar-right">Sign Out</button>
+  </div>
+    <button type="button" class="home btn btn-default navbar-btn navbar-left">Home</button>
 
-    <!-- change password dropdown -->
+    <!-- options dropdown -->
     <div class="account-info">
 
     </div>
-    <div class="sign-out-dropdown dropdown navbar-right">
+
+    <div class="dropdown dropdown navbar-right">
       <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         Options
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
       <div class="nav-message"></div>
-      <li><a href="#">{{>sign-in}}</a></li>
-      <li><a href="#">{{>sign-up}}</a></li>
-      <li><a href="#">{{>change-password}}</a></li>
-      <li><a href="#">{{>create-team}}</a></li>
-      <li><a href="#">{{>update-team}}</a></li>
-      <li><a href="#">{{>delete-team}}</a></li>
+      <li><a class="sign-in-list" href="#">{{>sign-in}}</a></li>
+      <li><a class="sign-up-list" href="#">{{>sign-up}}</a></li>
+      <li><a class="change-password-list"href="#">{{>change-password}}</a></li>
+      <li><a class="create-team-list" href="#">{{>create-team}}</a></li>
+      <li><a class="update-team-list" href="#">{{>update-team}}</a></li>
+      <li><a class="delete-team-list" href="#">{{>delete-team}}</a></li>
     </ul>
   </div>
   </div>

@@ -9,7 +9,6 @@ const onCreatePlayer = function (event) {
   event.preventDefault()
   const formData = getFormFields(event.target)
   formData.player.team_id = store.user.team.id
-  console.log('form data in submit is: ', formData)
   api.createPlayer(formData)
     .then(ui.createPlayerSuccess)
     .catch(ui.createPlayerFailure)
@@ -43,11 +42,24 @@ const onLoadPageNoEvent = () => {
 
 const onDeletePlayer = (event) => {
   event.preventDefault()
-  const data = getFormFields(event.target)
+  // const data = $(event.target).attr('data-player-id')
+  const id = $(event.target).children().attr('data-id')
+  const data = {players: { id: $(event.target).children().attr('data-id') }}
+  console.log('event.target is : ', event.target)
+  // console.log('ondeleteplayer: ', store.team.players.id)
+  // data.player.team_id = store.team.players.id
   // console.log(data)
   api.deletePlayer(data)
     .then(ui.onDeletePlayerSuccess)
     .catch(ui.onDeletePlayerFailure)
+    .then(() => {
+      $('#' + id).fadeOut()
+      $('#' + id + '-all').fadeOut()
+    })
+    .then(() => {
+      $('#' + id).remove()
+      $('#' + id + '-all').remove()
+    })
     .then(() => { onGetPlayerNoEvent() })
 }
 
@@ -63,8 +75,9 @@ const onUpdatePlayer = (event) => {
 const addHandlers = () => {
   $('body').on('submit', '.create-player', onCreatePlayer)
   $('body').on('click', '.get-players', onGetPlayer)
-  $('body').on('submit', '.delete-player', onDeletePlayer)
+  $('body').on('click', '.delete-player', onDeletePlayer)
   $('body').on('submit', '.update-player', onUpdatePlayer)
+
   // $('body').on('submit', '.team-ranks .delete-your-team', deleter)
 }
 

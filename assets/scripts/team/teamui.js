@@ -89,16 +89,24 @@ const onGetTeamFailure = function (data) {
 }
 
 const onGetTeamByIdSuccess = function (data) {
-  // store.user.team = data.team.id
+  // store.user = data.user
   $('#message').html(`<div class="alert alert-success" role="alert">Got team by id</div>`)
   $('#message').css('text-align', 'center')
   $('.container').empty()
   const teamsPlayerPageHandlebars = require('../templates/teams-player-page.handlebars')
   const teamsPlayerPageHTML = teamsPlayerPageHandlebars({ teams: data.team })
   $('.container').append(teamsPlayerPageHTML)
+  // const createPlayerHandlebars = require('../templates/create-player.handlebars')
+  // const createPlayerHTML = createPlayerHandlebars()
+
   setTimeout(() => {
     $('#message').html(``)
   }, 3000)
+  // console.log('store.user!: ', data.user)
+  // if (store.user) {
+  //   console.log('store.user!: ', store.user)
+  //   return $('.create-player-div').append(createPlayerHTML)
+  // }
 }
 
 const onGetTeamByIdFailure = function (data) {
