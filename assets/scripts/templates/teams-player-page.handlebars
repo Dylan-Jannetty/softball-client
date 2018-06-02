@@ -11,13 +11,14 @@
       <th>Bats</th>
     </tr>
     {{#each players as |player|}}
-    <tr data-id="{{player_.id}}">
+    <tr data-id="{{player.id}}">
       <td class="player-name">{{player.name}}</td>
       <td class="player-position">{{player.position}}</td>
       <td class="player-hits">{{player.hits}}</td>
       <td class="player-bats">{{player.bats}}</td>
-      <td>{{>delete-player data=player.id}}</td>
-      <td>{{>update-player data=player.id}}</td>
+      <!-- <td><button type="button" data-id="{{data}}" class="delete-player btn btn-danger">delete</button></td>
+      <!-- <td>{{>delete-player data=player.id}}</td> -->
+      <!-- <td>{{>update-player data=player.id}}</td> -->
     </tr>
     {{/each}}
   </table>
