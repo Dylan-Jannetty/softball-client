@@ -1,74 +1,48 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+Softball
 
-# browser-template
+Description:
+This full-stack application is for softball leagues to organize each team by rank. When you come to the app you have the ability to see the standings of each team in your league and the players on each team. When you sign in or sign up it gives you the ability to create a team and input the record of that team then the app will automatically sort you with the rest of the teams by wins. You can then click on your team that will bring you to a page that you can create each player that has a section for number of bats and number of hits.
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+Planning Process & Problem-Solving Strategy:
+I wanted a good plan before I started writing any code. I wrote down a list of things I wanted my APP to do by the end. I then created a set of user stories for AUTH and Client. Creating Wireframes was a bit challenging because there were multiple ways I was thinking to go about displaying my app. I stuck to the reccomended schedule that was given to us. Through all the projects I've created I found sticking to the reccomeneded schedule was a good way to meet MVP then branch out. It tends break down the project down into small groups.
 
-## Installation
+Unsolved Problems:
+I would like to resolve the issues I was having with deleting and updating each player by button.
+In the future I plan on restyling the players page to have there rank and record at the top left and top right corner and changing where the create player lies.
 
-1. [Download](../../archive/master.zip) this template.
-1. Move to the `wdi/projects` directory, then unzip the template directory with
-    `unzip /Users/<user-name>/Downloads/browser-template-master.zip`.
-1. Rename the template directory from `browser-template-master` to
-    `<project-name>-client`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace all instances of `ga-wdi-boston.browser-template` with the name of
-    your project.
-1. Move into the new project and `git init`.
-1. Add all of the files in your project with the command `git add --all`.
-      - **Note: This is the only time you should run this command!**
-1. Commit all of your files with the command `git commit`.
-      - Your commit title should read `Initial commit`.
-1. Install dependencies with `npm install`.
-1. Create a new repository on [github.com](https://github.com),
-    _not GitHub Enterprise_.
-1. Name the new repository with the same name used on Step 3.
+Installation process:
+Download this template.
+Move to the wdi/projects directory, then unzip the template directory with unzip /Users/<user-name>/Downloads/browser-template-master.zip.
+Rename the template directory from browser-template-master to <project-name>-client.
+Empty README.md and fill with your own content.
+Replace all instances of ga-wdi-boston.browser-template with the name of your project.
+Move into the new project and git init.
+Add all of the files in your project with the command git add --all.
+Note: This is the only time you should run this command!
+Commit all of your files with the command git commit.
+Your commit title should read Initial commit.
+Install dependencies with npm install.
+Create a new repository on github.com, not GitHub Enterprise.
+Name the new repository with the same name used on Step 3.
 
-## Structure
+Technologies:
+html
+css
+bootstrap
+javascript
+jquery
+handlebars
 
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/index.js`](assets/scripts/index.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
-
-Developers should set `apiUrls.production` and `apiUrls.development` in
-[`config/environment.js`](config/environment.js).  With
-`apiUrls` set, developers may rely on `apiUrl` as the base for API
-URLs.
-
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss). Bootstrap version 3 is
-included in this template.
-
-Developers should use [getFormFields](get-form-fields.md) to retrieve form data
-to send to an API.
-
-To deploy a browser-template based SPA, run `grunt deploy`.
-
-## Tasks
-
-Developers should run these often!
-
-- `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
-- `grunt make-standard`: reformats all your code in the JavaScript Standard Style
-- `grunt <server|serve|s>`: generates bundles, watches, and livereloads
-- `grunt test`: runs any automated tests, depends on `grunt build`
-- `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
-
-## Additional Resources
-
-- [Modern Javascript Explained for Dinosaurs](https://medium.com/@peterxjang/modern-javascript-explained-for-dinosaurs-f695e9747b70)
-- [Making Sense of Front End Build Tools](https://medium.freecodecamp.org/making-sense-of-front-end-build-tools-3a1b3a87043b)
-
-## [License](LICENSE)
-
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+deployed site:
+https://dylan-jannetty.github.io/softball-client/
+Front-end Repo:
+https://github.com/Dylan-Jannetty/softball-client
+back-end repo:
+https://github.com/Dylan-Jannetty/softballapi
+Heroku deploy:
+https://dashboard.heroku.com/apps/calm-garden-62361
+User Stories:
+https://i.imgur.com/gTRjVQg.jpg
+Wireframes:
+https://i.imgur.com/Y1AcvPf.jpg
+https://i.imgur.com/J5OxNxd.jpg
